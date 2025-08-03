@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: portfolio-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: portfolio-frontend
   template:
     metadata:
       labels:
-        app: hello-world
+        app: portfolio-frontend
     spec:
       containers:
-        - name: hello-world
-          image: yeasy/simple-web:latest
+        - name: portfolio-frontend
+          image: ghcr.io/aidenharwood/portfolio/frontend:0.0.1
           ports:
             - containerPort: 80
