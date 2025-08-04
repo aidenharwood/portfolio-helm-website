@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: portfolio-frontend
-          image: aidenharwood/portfolio/frontend:16733551171-13
+          image: aidenharwood/portfolio/frontend:16733583719-14
           ports:
             - containerPort: 3000
