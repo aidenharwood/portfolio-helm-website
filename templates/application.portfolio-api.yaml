@@ -29,11 +29,11 @@ spec:
             - name: GITSYNC_ROOT
               value: "/mnt/git"
             - name: GITSYNC_DEST
-              value: "/git"
+              value: "/mnt/git/blog"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
-              value: "60m"
+              value: "1m"
           volumeMounts:
           - mountPath: /mnt/git
             name: blog
