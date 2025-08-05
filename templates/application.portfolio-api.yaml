@@ -27,15 +27,15 @@ spec:
             - name: GITSYNC_REPO
               value: "https://github.com/aidenharwood/portfolio-markdown-blog.git"
             - name: GITSYNC_ROOT
-              value: "/app"
+              value: "/git"
             - name: GITSYNC_DEST
-              value: "blog/test"
+              value: "/mnt/git"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
               value: "60m"
           volumeMounts:
-          - mountPath: /app/blog
+          - mountPath: /mnt/git
             name: blog
       volumes:
       - name: blog
