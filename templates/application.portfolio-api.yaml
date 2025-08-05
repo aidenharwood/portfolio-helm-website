@@ -29,7 +29,7 @@ spec:
             - name: GITSYNC_ROOT
               value: "/app"
             - name: GITSYNC_DEST
-              value: "blog"
+              value: "blog/test"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
