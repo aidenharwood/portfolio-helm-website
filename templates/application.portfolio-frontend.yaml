@@ -17,3 +17,6 @@ spec:
           image: ghcr.io/aidenharwood/portfolio/frontend:16736147060-19
           ports:
             - containerPort: 3000
+          env:
+            - name: API_URL
+              value: "http://portfolio-api:80"
