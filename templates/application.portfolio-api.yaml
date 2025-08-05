@@ -27,8 +27,6 @@ spec:
             - name: GITSYNC_REPO
               value: "https://github.com/aidenharwood/portfolio-markdown-blog.git"
             - name: GITSYNC_ROOT
-              value: "/git"
-            - name: GITSYNC_DEST
               value: "/mnt/git"
             - name: GITSYNC_ONE_TIME
               value: "false"
