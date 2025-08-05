@@ -17,3 +17,21 @@ spec:
           image: ghcr.io/aidenharwood/portfolio/api:16757693522-6
           ports:
             - containerPort: 4000
+          volumeMounts:
+          - mountPath: /app/blog
+            name: blog
+            readOnly: true
+        - name: git-sync
+          image: k8s.gcr.io/git-sync/git-sync:v4.4.2
+          env:
+            - name: GITSYNC_REPO
+              value: "https://github.com/aidenharwood/portfolio-blog.git"
+            - name: GITSYNC_LINK
+              value: "/app/blog"
+          volumeMounts:
+          - mountPath: /app/blog
+            name: blog
+      volumes:
+      - name: blog
+        emptyDir:
+          sizeLimit: 500Mi
