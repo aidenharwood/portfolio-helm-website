@@ -32,8 +32,8 @@ spec:
               value: "."
             - name: GITSYNC_ONE_TIME
               value: "false"
-            - name: GITSYNC_WAIT
-              value: "30"
+            - name: GITSYNC_PERIOD
+              value: "60m"
           volumeMounts:
           - mountPath: /app/blog
             name: blog
