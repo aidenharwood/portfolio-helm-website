@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: portfolio-frontend
-          image: ghcr.io/aidenharwood/portfolio/frontend:16761534704-24
+          image: ghcr.io/aidenharwood/portfolio/frontend:16762900719-25
           ports:
             - containerPort: 3000
           env:
