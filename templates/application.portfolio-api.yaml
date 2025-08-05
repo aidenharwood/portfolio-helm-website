@@ -16,4 +16,4 @@ spec:
         - name: portfolio-frontend
           image: ghcr.io/aidenharwood/portfolio/api:0.0.0
           ports:
-            - containerPort: 4000
+            - containerPort: 3000
