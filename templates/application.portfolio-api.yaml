@@ -28,7 +28,7 @@ spec:
               value: "https://github.com/aidenharwood/portfolio-markdown-blog.git"
             - name: GITSYNC_ROOT
               value: "/git"
-            - name: GITSYNC_LINK
+            - name: GITSYNC_DEST
               value: "/app/blog"
             - name: GITSYNC_ONE_TIME
               value: "false"
