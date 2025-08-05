@@ -26,8 +26,12 @@ spec:
           env:
             - name: GITSYNC_REPO
               value: "https://github.com/aidenharwood/portfolio-blog.git"
-            - name: GITSYNC_LINK
+            - name: GIT_SYNC_ROOT
               value: "/app/blog"
+            - name: GIT_SYNC_ONE_TIME
+              value: "false"
+            - name: GIT_SYNC_WAIT
+              value: "30"
           volumeMounts:
           - mountPath: /app/blog
             name: blog
