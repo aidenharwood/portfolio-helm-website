@@ -19,4 +19,4 @@ spec:
             - containerPort: 3000
           env:
             - name: VITE_API_URL
-              value: "http://portfolio-api:80"
+              value: "https://api.aidenharwood.uk"
