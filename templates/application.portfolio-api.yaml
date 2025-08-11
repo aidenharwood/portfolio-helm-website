@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: portfolio-api
-          image: ghcr.io/aidenharwood/portfolio/api:16888929373-16
+          image: ghcr.io/aidenharwood/portfolio/api:16889284768-17
           ports:
             - containerPort: 4000
           volumeMounts:
