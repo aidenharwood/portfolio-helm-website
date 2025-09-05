@@ -14,16 +14,16 @@ spec:
     spec:
       containers:
         - name: portfolio-api
-          image: ghcr.io/aidenharwood/portfolio/api:16757693522-6
+          image: ghcr.io/aidenharwood/portfolio/api:17476134326-20
           ports:
             - containerPort: 4000
           env:
             - name: OTEL_ENDPOINT
               value: http://lgtm-alloy.lgtm.svc.cluster.local:4318
           volumeMounts:
-          - mountPath: /app/blog
-            name: blog
-            readOnly: true
+            - mountPath: /app/blog
+              name: blog
+              readOnly: true
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.4.2
           env:
@@ -38,9 +38,9 @@ spec:
             - name: GITSYNC_PERIOD
               value: "1m"
           volumeMounts:
-          - mountPath: /mnt/git
-            name: blog
+            - mountPath: /mnt/git
+              name: blog
       volumes:
-      - name: blog
-        emptyDir:
-          sizeLimit: 500Mi
+        - name: blog
+          emptyDir:
+            sizeLimit: 500Mi
