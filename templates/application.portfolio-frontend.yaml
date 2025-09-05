@@ -20,3 +20,5 @@ spec:
           env:
             - name: VITE_API_URL
               value: "https://api.aidenharwood.uk"
+            - name: OTEL_ENDPOINT
+              value: http://lgtm-alloy.lgtm.svc.cluster.local:4318

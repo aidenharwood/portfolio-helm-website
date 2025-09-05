@@ -17,6 +17,9 @@ spec:
           image: ghcr.io/aidenharwood/portfolio/api:16757693522-6
           ports:
             - containerPort: 4000
+          env:
+            - name: OTEL_ENDPOINT
+              value: http://lgtm-alloy.lgtm.svc.cluster.local:4318
           volumeMounts:
           - mountPath: /app/blog
             name: blog
@@ -29,7 +32,7 @@ spec:
             - name: GITSYNC_ROOT
               value: "/mnt/git"
             - name: GITSYNC_DEST
-              value: "/mnt/git/blog"
+              value: "/mnt/git"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
