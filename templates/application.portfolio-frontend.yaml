@@ -20,5 +20,7 @@ spec:
           env:
             - name: VITE_API_URL
               value: "https://api.aidenharwood.uk"
-            - name: OTEL_ENDPOINT
+            - name: NODE_OPTIONS
+              value: --require @opentelemetry/auto-instrumentations-node/register
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://lgtm-alloy.lgtm.svc.cluster.local:4318
