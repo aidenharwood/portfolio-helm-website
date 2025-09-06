@@ -22,6 +22,8 @@ spec:
               value: --require @opentelemetry/auto-instrumentations-node/register
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://lgtm-alloy.lgtm.svc.cluster.local:4318
+            - name: ARGOCD_URL
+              value: "https://argocd.aidenharwood.uk"
           volumeMounts:
             - mountPath: /app/blog
               name: blog
