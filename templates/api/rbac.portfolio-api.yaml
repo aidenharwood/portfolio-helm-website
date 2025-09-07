@@ -40,6 +40,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: portfolio-api-sa
+    namespace: website
 roleRef:
   kind: ClusterRole
   name: portfolio-api-view
