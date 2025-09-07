@@ -46,11 +46,12 @@ spec:
               readOnly: true
         - name: portfolio-k9s
           image: derailed/k9s:latest
-          command: ["/bin/sh", "-c"]
+          command: ["/bin/sh"]
+          # command: ["/bin/sh", "-c"]
           tty: true
           stdin: true
-          args:
-            - apk add ncurses && k9s --headless --readonly
+          # args:
+          #   - apk add ncurses && k9s --headless --readonly
           env:
             # - name: TERM
             #   value: xterm-256color
