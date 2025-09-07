@@ -5,6 +5,6 @@ metadata:
 data:
 {{- $files := .Files.Glob "_scripts/*" }}
 {{- range $path, $file := $files }}
-  {{ base $path }}: |-
+  {{ .Files.Get $path }}: |-
 {{ $file | indent 4 }}
 {{- end }}
