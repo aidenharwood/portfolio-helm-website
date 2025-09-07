@@ -51,7 +51,7 @@ spec:
           tty: true
           stdin: true
           args:
-            - apk add ncurses && k9s --headless --readonly
+            - kubectl config use-context default && apk add ncurses && k9s --headless --readonly
           env:
             - name: TERM
               value: xterm-256color
