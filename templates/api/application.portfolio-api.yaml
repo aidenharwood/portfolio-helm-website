@@ -47,13 +47,13 @@ spec:
         - name: portfolio-k9s
           image: derailed/k9s:latest
           command: ["/bin/sh", "-c"]
-          tty: true
-          stdin: true
+          # tty: true
+          # stdin: true
           args:
             - apk add ncurses && k9s --headless --readonly
           env:
-            - name: TERM
-              value: xterm-256color
+            # - name: TERM
+            #   value: xterm-256color
             - name: KUBECONFIG
               value: /kube/config
           volumeMounts:
