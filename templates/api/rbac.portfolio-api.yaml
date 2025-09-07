@@ -23,3 +23,20 @@ roleRef:
   kind: Role
   name: portfolio-api-exec
   apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: portfolio-api-view
+rules:
+  - apiGroups: [""]
+    resources: ["*"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: portfolio-api-view-binding
+subjects:
+  - kind: ServiceAccount
+    name: portfolio-api-sa
