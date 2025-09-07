@@ -47,8 +47,6 @@ spec:
             - mountPath: /app/blog
               name: blog
               readOnly: true
-            - name: kubeconfig
-              mountPath: /kube
         - name: portfolio-k9s
           image: derailed/k9s:latest
           command: ["/bin/sh", "-c"]
@@ -73,8 +71,8 @@ spec:
             - name: GITSYNC_PERIOD
               value: "1m"
           volumeMounts:
-            - mountPath: /mnt/git
-              name: blog
+            - name: kubeconfig
+              mountPath: /kube
       volumes:
         - name: blog
           emptyDir:
