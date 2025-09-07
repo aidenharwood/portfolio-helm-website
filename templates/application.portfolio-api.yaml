@@ -34,6 +34,8 @@ spec:
           args:
             - apk add ncurses && k9s --headless --readonly
           env:
+            - name: TERM
+              value: xterm-256color
             - name: POD_NAMESPACE
               valueFrom:
           fieldRef:
