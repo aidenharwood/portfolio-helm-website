@@ -3,6 +3,4 @@ kind: ConfigMap
 metadata:
   name: api-scripts
 data:
-  {{ range $path, $_ :=  .Files.Glob  "**.yaml" }}
-        {{ $.Files.Get $path }}
-  {{ end }}
+{{- (.Files.Glob "_scripts/*").AsConfig | indent 2 }}
