@@ -16,10 +16,9 @@ spec:
       initContainers:
         - name: kubeconfig-writer
           image: busybox:1.36
-          command: ["/bin/sh","-c"]
+          command: ["/bin/sh", "-c"]
           args:
-            - /mnt/script/write-kubeconfig.sh
-              chmod 644 /kube/config
+            - /mnt/script/write-kubeconfig.sh chmod 644 /kube/config
           volumeMounts:
             - name: scripts
               mountPath: /mnt/script
@@ -27,7 +26,7 @@ spec:
               mountPath: /kube
       containers:
         - name: portfolio-api
-          image: ghcr.io/aidenharwood/portfolio/api:17528045591-33
+          image: ghcr.io/aidenharwood/portfolio/api:17528690581-34
           ports:
             - containerPort: 4000
           env:
