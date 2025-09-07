@@ -32,7 +32,7 @@ spec:
           image: derailed/k9s:latest
           command: ["/bin/sh", "-c"]
           args:
-            - apk add ncurses && k9s
+            - apk add ncurses && k9s --headless -readonly
           env:
             - name: POD_NAMESPACE
               valueFrom:
