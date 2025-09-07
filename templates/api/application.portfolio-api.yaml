@@ -57,6 +57,9 @@ spec:
           env:
             - name: TERM
               value: xterm-256color
+          volumeMounts:
+            - name: kubeconfig
+              mountPath: /kube
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.4.2
           env:
@@ -71,8 +74,8 @@ spec:
             - name: GITSYNC_PERIOD
               value: "1m"
           volumeMounts:
-            - name: kubeconfig
-              mountPath: /kube
+            - mountPath: /mnt/git
+              name: blog
       volumes:
         - name: blog
           emptyDir:
