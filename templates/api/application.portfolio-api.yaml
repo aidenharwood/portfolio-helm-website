@@ -51,7 +51,8 @@ spec:
           tty: true
           stdin: true
           # args:
-          #   - apk add ncurses && k9s --headless --readonly
+          #   # Install ncurses, switch to k9s user, then run k9s in headless readonly mode showing all namespaces
+          #   - apk add ncurses && sh
           env:
             # - name: TERM
             #   value: xterm-256color
