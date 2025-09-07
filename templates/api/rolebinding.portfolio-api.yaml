@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: portfolio-api-exec-binding
+  namespace: default
+subjects:
+  - kind: ServiceAccount
+    name: portfolio-api-sa
+    namespace: default
+roleRef:
+  kind: Role
+  name: portfolio-api-exec
+  apiGroup: rbac.authorization.k8s.io

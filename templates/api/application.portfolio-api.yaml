@@ -12,6 +12,7 @@ spec:
       labels:
         app: portfolio-api
     spec:
+      serviceAccountName: portfolio-api-sa
       containers:
         - name: portfolio-api
           image: ghcr.io/aidenharwood/portfolio/api:17526507965-24
