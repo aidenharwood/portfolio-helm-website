@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: portfolio-api
-          image: ghcr.io/aidenharwood/portfolio/api:17515143535-23
+          image: ghcr.io/aidenharwood/portfolio/api:17526507965-24
           ports:
             - containerPort: 4000
           env:
@@ -33,10 +33,10 @@ spec:
           arguments:
             - --readonly
           env:
-             - name: POD_NAMESPACE
-               valueFrom:
-                 fieldRef:
-                   fieldPath: metadata.namespace
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.4.2
           env:
