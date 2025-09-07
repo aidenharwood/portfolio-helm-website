@@ -19,12 +19,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: portfolio-api-sa-rolebinding
-  namespace: website
+  namespace: k9s
 subjects:
   - kind: ServiceAccount
     name: portfolio-api-sa
+    namespace: website
 roleRef:
   kind: Role
   name: portfolio-api-sa-role
-  namespace: k9s
   apiGroup: rbac.authorization.k8s.io
