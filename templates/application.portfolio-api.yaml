@@ -30,13 +30,14 @@ spec:
               readOnly: true
         - name: portfolio-k9s
           image: derailed/k9s:latest
-          arguments:
-            - --readonly
+          command: ["/bin/sh", "-c"]
+          args:
+            - apk add ncurses && sh
           env:
-             - name: POD_NAMESPACE
-               valueFrom:
-                 fieldRef:
-                   fieldPath: metadata.namespace
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.4.2
           env:
