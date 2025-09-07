@@ -28,6 +28,15 @@ spec:
             - mountPath: /app/blog
               name: blog
               readOnly: true
+        - name: portfolio-k9s
+          image: derailed/k9s:latest
+          arguments:
+            - --readonly
+          env:
+             - name: POD_NAMESPACE
+               valueFrom:
+                 fieldRef:
+                   fieldPath: metadata.namespace
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.4.2
           env:
