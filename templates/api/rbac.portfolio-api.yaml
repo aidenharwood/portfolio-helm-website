@@ -40,3 +40,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: portfolio-api-sa
+roleRef:
+  kind: ClusterRole
+  name: portfolio-api-view
+  apiGroup: rbac.authorization.k8s.io
