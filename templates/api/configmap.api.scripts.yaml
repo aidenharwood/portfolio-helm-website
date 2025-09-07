@@ -6,5 +6,5 @@ data:
 {{- $files := .Files.Glob "_scripts/*" }}
 {{- range $path, $file := $files }}
   {{ base $path }}: |-
-    {{ $file | indent 4 }}
+{{ $file | indent 4 }}
 {{- end }}
