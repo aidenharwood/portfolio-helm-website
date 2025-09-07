@@ -60,6 +60,9 @@ spec:
           volumeMounts:
             - name: kubeconfig
               mountPath: /kube
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 2000
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.4.2
           env:
