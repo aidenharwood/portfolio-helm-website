@@ -6,8 +6,6 @@ rules:
   - apiGroups: [""]
     resources:
       - pods/exec
-      - pods/attach
-      - pods/portforward
     verbs:
       - create
       - get
