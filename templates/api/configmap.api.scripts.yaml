@@ -3,8 +3,4 @@ kind: ConfigMap
 metadata:
   name: api-scripts
 data:
-{{- $files := .Files.Glob "_scripts/*" }}
-{{- range $path, $file := $files }}
-  {{ base $path }}: |-
-{{ $file | indent 4 }}
-{{- end }}
+{{- (.Files.Glob "_scripts/*").AsConfig | indent 2 }}
