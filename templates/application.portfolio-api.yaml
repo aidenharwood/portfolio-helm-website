@@ -31,6 +31,8 @@ spec:
         - name: portfolio-k9s
           image: derailed/k9s:latest
           command: ["/bin/sh", "-c"]
+          tty: true
+          stdin: true
           args:
             - apk add ncurses && k9s --headless --readonly
           env:
