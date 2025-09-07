@@ -1,6 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: api-scripts
+  name: portfolio-api-scripts
 data:
-{{- (.Files.Glob "_scripts/*").AsConfig | indent 2 }}
+{{- $files := .Files.Glob "_scripts/*" }}
+{{- range $path, $file := $files }}
+  {{ .Files.Get $path }}: |-
+{{ $file | indent 4 }}
+{{- end }}
