@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: portfolio-api-scripts
+  name: k9s-scripts
+  namespace: k9s
 data:
   {{- (.Files.Glob "_scripts/*").AsConfig | nindent 2 }}
