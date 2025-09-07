@@ -26,7 +26,7 @@ spec:
               mountPath: /kube
       containers:
         - name: portfolio-api
-          image: ghcr.io/aidenharwood/portfolio/api:17528801438-35
+          image: ghcr.io/aidenharwood/portfolio/api:17528820200-36
           ports:
             - containerPort: 4000
           env:
