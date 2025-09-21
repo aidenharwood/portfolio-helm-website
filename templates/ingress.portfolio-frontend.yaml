@@ -4,7 +4,7 @@ metadata:
   name: frontend-ingress
   annotations:
     traefik.ingress.kubernetes.io/service.serversscheme: http
-    traefik.ingress.kubernetes.io/router.priority: "20"
+    traefik.ingress.kubernetes.io/router.priority: "10"
 spec:
   ingressClassName: traefik
   tls:
