@@ -16,7 +16,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: portfolio-backend
+                name: portfolio-api
                 port:
                   number: 80
 
