@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: website-ingress
+  name: api-ingress
   annotations:
     traefik.ingress.kubernetes.io/service.serversscheme: http
     traefik.ingress.kubernetes.io/router.priority: "10"
