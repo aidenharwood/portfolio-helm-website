@@ -20,3 +20,10 @@ spec:
                 name: portfolio-frontend
                 port:
                   name: 80
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: portfolio-backend
+                port:
+                  name: http
