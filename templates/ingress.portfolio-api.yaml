@@ -4,6 +4,7 @@ metadata:
   name: website-ingress
   annotations:
     traefik.ingress.kubernetes.io/service.serversscheme: http
+    traefik.ingress.kubernetes.io/router.priority: "10"
 spec:
   ingressClassName: traefik
   tls:
@@ -18,12 +19,5 @@ spec:
             backend:
               service:
                 name: portfolio-backend
-                port:
-                  number: 80
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: portfolio-frontend
                 port:
                   number: 80
