@@ -33,6 +33,12 @@ spec:
             - mountPath: /app/blog
               name: blog
               readOnly: true
+            - mountPath: /app/images
+              name: images
+              readOnly: true
+            - mountPath: /app/projects
+              name: projects
+              readOnly: true
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.4.2
           env:
@@ -49,7 +55,45 @@ spec:
           volumeMounts:
             - mountPath: /mnt/git
               name: blog
+        - name: git-sync-images
+          image: k8s.gcr.io/git-sync/git-sync:v4.4.2
+          env:
+            - name: GITSYNC_REPO
+              value: "https://github.com/aidenharwood/portfolio-images.git"
+            - name: GITSYNC_ROOT
+              value: "/mnt/git"
+            - name: GITSYNC_DEST
+              value: "/mnt/git"
+            - name: GITSYNC_ONE_TIME
+              value: "false"
+            - name: GITSYNC_PERIOD
+              value: "1m"
+          volumeMounts:
+            - mountPath: /mnt/git
+              name: images
+        - name: git-sync-projects
+          image: k8s.gcr.io/git-sync/git-sync:v4.4.2
+          env:
+            - name: GITSYNC_REPO
+              value: "https://github.com/aidenharwood/portfolio-markdown-projects.git"
+            - name: GITSYNC_ROOT
+              value: "/mnt/git"
+            - name: GITSYNC_DEST
+              value: "/mnt/git"
+            - name: GITSYNC_ONE_TIME
+              value: "false"
+            - name: GITSYNC_PERIOD
+              value: "1m"
+          volumeMounts:
+            - mountPath: /mnt/git
+              name: projects
       volumes:
         - name: blog
+          emptyDir:
+            sizeLimit: 500Mi
+        - name: images
+          emptyDir:
+            sizeLimit: 1Gi
+        - name: projects
           emptyDir:
             sizeLimit: 500Mi
