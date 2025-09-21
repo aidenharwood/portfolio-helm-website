@@ -13,17 +13,17 @@ spec:
     - host: aidenharwood.uk
       http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: portfolio-frontend
-                port:
-                  number: 80
           - path: /api/
             pathType: Prefix
             backend:
               service:
                 name: portfolio-backend
+                port:
+                  number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: portfolio-frontend
                 port:
                   number: 80
