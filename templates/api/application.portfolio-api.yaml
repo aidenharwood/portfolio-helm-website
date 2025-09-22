@@ -15,7 +15,7 @@ spec:
       serviceAccountName: portfolio-api-sa
       containers:
         - name: portfolio-api
-          image: ghcr.io/aidenharwood/portfolio/api:17910785597-86
+          image: ghcr.io/aidenharwood/portfolio/api:17928235992-87
           ports:
             - containerPort: 4000
           env:
