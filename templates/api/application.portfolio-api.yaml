@@ -20,7 +20,7 @@ spec:
             - containerPort: 4000
           env:
             - name: IMAGES_DIR
-              value: /app/images/portfolio-markdown-blog.git
+              value: /app/images
             - name: NODE_OPTIONS
               value: --require @opentelemetry/auto-instrumentations-node/register
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
@@ -34,12 +34,15 @@ spec:
           volumeMounts:
             - mountPath: /app/blog
               name: blog
+              subPath: blog
               readOnly: true
             - mountPath: /app/images
               name: images
+              subPath: images
               readOnly: true
             - mountPath: /app/projects
               name: projects
+              subPath: projects
               readOnly: true
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.4.2
@@ -49,7 +52,7 @@ spec:
             - name: GITSYNC_ROOT
               value: "/mnt/git"
             - name: GITSYNC_DEST
-              value: "/mnt/git"
+              value: "blog"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
@@ -65,7 +68,7 @@ spec:
             - name: GITSYNC_ROOT
               value: "/mnt/git"
             - name: GITSYNC_DEST
-              value: "/mnt/git"
+              value: "images"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
@@ -81,7 +84,7 @@ spec:
             - name: GITSYNC_ROOT
               value: "/mnt/git"
             - name: GITSYNC_DEST
-              value: "/mnt/git"
+              value: "projects"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
