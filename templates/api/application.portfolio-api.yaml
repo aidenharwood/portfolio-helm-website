@@ -45,14 +45,14 @@ spec:
               subPath: projects
               readOnly: true
         - name: git-sync
-          image: k8s.gcr.io/git-sync/git-sync:v4.4.2
+          image: k8s.gcr.io/git-sync/git-sync:v4.5.0
           env:
             - name: GITSYNC_REPO
               value: "https://github.com/aidenharwood/portfolio-markdown-blog.git"
             - name: GITSYNC_ROOT
-              value: "/mnt/git/root"
+              value: "/mnt/git/"
             - name: GITSYNC_DEST
-              value: "/mnt/git"
+              value: "/"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
@@ -61,14 +61,14 @@ spec:
             - mountPath: /mnt/git
               name: blog
         - name: git-sync-images
-          image: k8s.gcr.io/git-sync/git-sync:v4.4.2
+          image: k8s.gcr.io/git-sync/git-sync:v4.5.0
           env:
             - name: GITSYNC_REPO
               value: "https://github.com/aidenharwood/portfolio-images.git"
             - name: GITSYNC_ROOT
-              value: "/mnt/git/root"
+              value: "/mnt/git/"
             - name: GITSYNC_DEST
-              value: "/mnt/git"
+              value: "/"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
@@ -77,14 +77,14 @@ spec:
             - mountPath: /mnt/git
               name: images
         - name: git-sync-projects
-          image: k8s.gcr.io/git-sync/git-sync:v4.4.2
+          image: k8s.gcr.io/git-sync/git-sync:v4.5.0
           env:
             - name: GITSYNC_REPO
               value: "https://github.com/aidenharwood/portfolio-markdown-projects.git"
             - name: GITSYNC_ROOT
-              value: "/mnt/git/root"
+              value: "/mnt/git/"
             - name: GITSYNC_DEST
-              value: "/mnt/git"
+              value: "/"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
