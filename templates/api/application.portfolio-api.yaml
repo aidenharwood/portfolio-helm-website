@@ -53,6 +53,8 @@ spec:
               value: "/mnt/git"
             - name: GITSYNC_DEST
               value: ""
+            - name: GITSYNC_DEPTH
+              value: "1"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
@@ -69,6 +71,8 @@ spec:
               value: "/mnt/git"
             - name: GITSYNC_DEST
               value: ""
+            - name: GITSYNC_DEPTH
+              value: "1"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
@@ -85,6 +89,8 @@ spec:
               value: "/mnt/git"
             - name: GITSYNC_DEST
               value: ""
+            - name: GITSYNC_DEPTH
+              value: "1"
             - name: GITSYNC_ONE_TIME
               value: "false"
             - name: GITSYNC_PERIOD
