@@ -5,6 +5,7 @@ metadata:
   name: api-ingress
   annotations:
     traefik.ingress.kubernetes.io/service.serversscheme: http
+    traefik.ingress.kubernetes.io/router.priority: "20"
 spec:
   ingressClassName: traefik
   rules:
@@ -41,6 +42,7 @@ metadata:
   name: frontend-ingress
   annotations:
     traefik.ingress.kubernetes.io/service.serversscheme: http
+    traefik.ingress.kubernetes.io/router.priority: "10"
 spec:
   ingressClassName: traefik
   rules:
