@@ -83,7 +83,7 @@ spec:
               value: "https://github.com/aidenharwood/portfolio-markdown-projects.git"
             - name: GITSYNC_ROOT
               value: "/mnt/git/root"
-            - name: GITSYNC_LINK
+            - name: GITSYNC_DEST
               value: "/mnt/git"
             - name: GITSYNC_ONE_TIME
               value: "false"
