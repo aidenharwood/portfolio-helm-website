@@ -18,6 +18,13 @@ spec:
                 name: portfolio-api
                 port:
                   number: 80
+          - path: /images/
+            pathType: Prefix
+            backend:
+              service:
+                name: portfolio-api
+                port:
+                  number: 80
           - path: /k9s
             pathType: Prefix
             backend:
