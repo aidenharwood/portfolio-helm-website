@@ -34,12 +34,15 @@ spec:
           volumeMounts:
             - mountPath: /app/blog
               name: blog
+              subPath: portfolio-markdown-blog.git
               readOnly: true
             - mountPath: /app/images
               name: images
+              subPath: portfolio-images.git
               readOnly: true
             - mountPath: /app/projects
               name: projects
+              subPath: portfolio-markdown-projects.git
               readOnly: true
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.5.0
