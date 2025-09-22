@@ -34,15 +34,12 @@ spec:
           volumeMounts:
             - mountPath: /app/blog
               name: blog
-              subPath: blog
               readOnly: true
             - mountPath: /app/images
               name: images
-              subPath: images
               readOnly: true
             - mountPath: /app/projects
               name: projects
-              subPath: projects
               readOnly: true
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.5.0
