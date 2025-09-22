@@ -20,11 +20,11 @@ spec:
             - containerPort: 4000
           env:
             - name: IMAGES_DIR
-              value: /app/images
+              value: /app/images/current
             - name: BLOGS_DIR
-              value: /app/blog
+              value: /app/blog/current
             - name: PROJECTS_DIR
-              value: /app/projects
+              value: /app/projects/current
             - name: NODE_OPTIONS
               value: --require @opentelemetry/auto-instrumentations-node/register
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
@@ -38,15 +38,12 @@ spec:
           volumeMounts:
             - mountPath: /app/blog
               name: blog
-              subPath: current
               readOnly: true
             - mountPath: /app/images
               name: images
-              subPath: current
               readOnly: true
             - mountPath: /app/projects
               name: projects
-              subPath: current
               readOnly: true
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.5.0
