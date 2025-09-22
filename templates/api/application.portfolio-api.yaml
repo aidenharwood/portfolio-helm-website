@@ -20,11 +20,11 @@ spec:
             - containerPort: 4000
           env:
             - name: IMAGES_DIR
-              value: /app/images/portfolio-images.git
+              value: /app/images
             - name: BLOGS_DIR
-              value: /app/blog/portfolio-markdown-blog.git
+              value: /app/blog
             - name: PROJECTS_DIR
-              value: /app/projects/portfolio-markdown-projects.git
+              value: /app/projects
             - name: NODE_OPTIONS
               value: --require @opentelemetry/auto-instrumentations-node/register
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
