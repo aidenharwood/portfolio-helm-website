@@ -5,8 +5,7 @@ metadata:
   name: api-ingress
   annotations:
     traefik.ingress.kubernetes.io/service.serversscheme: http
-    traefik.ingress.kubernetes.io/router.priority: "100"
-    traefik.ingress.kubernetes.io/router.rule: "Host(`aidenharwood.uk`) && (PathPrefix(`/api/`) || PathPrefix(`/images/`) || PathPrefix(`/k9s`))"
+    traefik.ingress.kubernetes.io/router.priority: "20"
 spec:
   ingressClassName: traefik
   rules:
