@@ -20,7 +20,11 @@ spec:
             - containerPort: 4000
           env:
             - name: IMAGES_DIR
-              value: /app/images
+              value: /app/images/portfolio-images.git
+            - name: BLOGS_DIR
+              value: /app/blog/portfolio-markdown-blog.git
+            - name: PROJECTS_DIR
+              value: /app/projects/portfolio-markdown-projects.git
             - name: NODE_OPTIONS
               value: --require @opentelemetry/auto-instrumentations-node/register
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
@@ -34,15 +38,12 @@ spec:
           volumeMounts:
             - mountPath: /app/blog
               name: blog
-              subPath: portfolio-markdown-blog.git
               readOnly: true
             - mountPath: /app/images
               name: images
-              subPath: portfolio-images.git
               readOnly: true
             - mountPath: /app/projects
               name: projects
-              subPath: portfolio-markdown-projects.git
               readOnly: true
         - name: git-sync
           image: k8s.gcr.io/git-sync/git-sync:v4.5.0
