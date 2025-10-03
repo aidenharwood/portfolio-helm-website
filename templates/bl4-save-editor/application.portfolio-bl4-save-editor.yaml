@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio-bl4-save-editor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portfolio-bl4-save-editor
+  template:
+    metadata:
+      labels:
+        app: portfolio-bl4-save-editor
+    spec:
+      containers:
+        - name: portfolio-bl4-save-editor
+          image: ghcr.io/aidenharwood/portfolio/bl4-save-editor:17550239481-50
+          ports:
+            - containerPort: 3000

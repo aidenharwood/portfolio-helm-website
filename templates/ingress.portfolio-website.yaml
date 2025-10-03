@@ -56,3 +56,26 @@ spec:
                 name: portfolio-frontend
                 port:
                   number: 80
+
+---
+# Save Editor Ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bl4-save-editor-ingress
+  annotations:
+    traefik.ingress.kubernetes.io/service.serversscheme: http
+    traefik.ingress.kubernetes.io/router.priority: "10"
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: bl4editor.aidenharwood.uk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: portfolio-bl4-save-editor
+                port:
+                  number: 80
