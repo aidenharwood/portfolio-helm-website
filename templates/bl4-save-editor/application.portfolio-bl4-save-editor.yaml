@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: portfolio-bl4-save-editor
-          image: ghcr.io/aidenharwood/portfolio/bl4-save-editor:17550239481-50
+          image: ghcr.io/aidenharwood/portfolio/bl4-save-editor:18221064511-1
           ports:
             - containerPort: 3000
