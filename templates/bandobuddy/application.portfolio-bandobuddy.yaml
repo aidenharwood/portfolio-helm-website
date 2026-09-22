@@ -22,7 +22,7 @@ spec:
       terminationGracePeriodSeconds: 30 # lets an update pause cleanly and resume on the next pod
       containers:
         - name: portfolio-bandobuddy
-          image: ghcr.io/aidenharwood/portfolio/bandobuddy:35755957594-1 # updated by CI on every build
+          image: ghcr.io/aidenharwood/portfolio/bandobuddy:35760684089-3 # updated by CI on every build
           ports:
             - containerPort: 8642
           env:
