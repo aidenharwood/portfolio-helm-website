@@ -38,7 +38,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - name: gateway
-          image: ghcr.io/aidenharwood/portfolio/cel-blade:38262636092-1 # updated by CI on every build
+          image: ghcr.io/aidenharwood/portfolio/cel-blade:38467804523-6 # updated by CI on every build
           ports:
             - name: http
               containerPort: 8080
@@ -123,7 +123,7 @@ spec:
       terminationGracePeriodSeconds: 30 # a closing layer saves everyone and hands them on
       containers:
         - name: realm
-          image: ghcr.io/aidenharwood/portfolio/cel-blade:38262636092-1 # updated by CI on every build
+          image: ghcr.io/aidenharwood/portfolio/cel-blade:38467804523-6 # updated by CI on every build
           ports:
             - name: http
               containerPort: 8080
