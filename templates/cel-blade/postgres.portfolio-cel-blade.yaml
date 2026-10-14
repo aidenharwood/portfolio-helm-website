@@ -62,6 +62,21 @@ spec:
               memory: 256Mi
             limits:
               memory: 1Gi
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - -ec
+                  - |
+                    until pg_isready -U celblade -d celblade; do
+                      sleep 2
+                    done
+
+                    psql -U celblade -d celblade \
+                      --set=secret_password="$POSTGRES_PASSWORD" <<'SQL'
+                    ALTER ROLE celblade WITH PASSWORD :'secret_password';
+                    SQL
       volumes:
         - name: data
           persistentVolumeClaim:
