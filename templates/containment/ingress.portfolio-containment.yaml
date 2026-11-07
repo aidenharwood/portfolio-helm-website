@@ -1,0 +1,21 @@
+# The game and its WebSocket (/ws) on one host; Traefik passes WebSocket upgrades through as they are.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: containment-ingress
+  annotations:
+    traefik.ingress.kubernetes.io/service.serversscheme: http
+    traefik.ingress.kubernetes.io/router.priority: "10"
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: containment.aidenharwood.uk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: portfolio-containment
+                port:
+                  number: 80

@@ -1,0 +1,66 @@
+# Containment Online: one Node process serving the built client and the game's WebSocket (/ws).
+# Accounts and characters live in SQLite on a local-path volume, so there is exactly one pod.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio-containment
+  labels:
+    app: portfolio-containment
+    app.kubernetes.io/part-of: containment
+spec:
+  replicas: 1 # one writer for the SQLite database
+  strategy:
+    type: Recreate # never two pods on the same volume
+  selector:
+    matchLabels:
+      app: portfolio-containment
+  template:
+    metadata:
+      labels:
+        app: portfolio-containment
+        app.kubernetes.io/part-of: containment
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000 # the node image's own user
+        runAsGroup: 1000
+        fsGroup: 1000
+      terminationGracePeriodSeconds: 30 # SIGTERM saves every online character before exit
+      containers:
+        - name: containment
+          image: ghcr.io/aidenharwood/portfolio/containment:0-0 # updated by CI on every build
+          ports:
+            - name: http
+              containerPort: 7420
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: GAME_SERVER_PORT
+              value: "7420"
+            - name: DATABASE_PATH
+              value: /data/containment.sqlite
+          volumeMounts:
+            - name: data
+              mountPath: /data
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: 100m
+              memory: 192Mi
+            limits:
+              memory: 1Gi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: portfolio-containment-data
