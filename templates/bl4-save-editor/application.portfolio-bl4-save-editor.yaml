@@ -4,6 +4,12 @@ metadata:
   name: portfolio-bl4-save-editor
 spec:
   replicas: 1
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0 # the old pod stays until the new one passes its readiness probe
   selector:
     matchLabels:
       app: portfolio-bl4-save-editor
@@ -12,8 +18,26 @@ spec:
       labels:
         app: portfolio-bl4-save-editor
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
         - name: portfolio-bl4-save-editor
           image: ghcr.io/aidenharwood/portfolio/bl4-save-editor:18700463183-11
           ports:
             - containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            periodSeconds: 5
+            failureThreshold: 2
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            failureThreshold: 3
+          lifecycle:
+            preStop: # keep serving while Traefik drops this pod from its endpoints
+              exec:
+                command: ["sleep", "10"]

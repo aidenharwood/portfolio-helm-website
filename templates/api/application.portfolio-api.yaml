@@ -4,6 +4,12 @@ metadata:
   name: portfolio-api
 spec:
   replicas: 1
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0 # the old pod stays until the new one passes its readiness probe
   selector:
     matchLabels:
       app: portfolio-api
@@ -13,11 +19,29 @@ spec:
         app: portfolio-api
     spec:
       serviceAccountName: portfolio-api-sa
+      terminationGracePeriodSeconds: 30
       containers:
         - name: portfolio-api
           image: ghcr.io/aidenharwood/portfolio/api:18060505812-102
           ports:
             - containerPort: 4000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 4000
+            periodSeconds: 5
+            failureThreshold: 2
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            failureThreshold: 3
+          lifecycle:
+            preStop: # keep serving while Traefik drops this pod from its endpoints
+              exec:
+                command: ["sleep", "10"]
           env:
             - name: IMAGES_DIR
               value: /app/images/current
