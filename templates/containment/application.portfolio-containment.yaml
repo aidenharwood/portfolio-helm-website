@@ -28,7 +28,7 @@ spec:
       terminationGracePeriodSeconds: 30 # SIGTERM saves every online character before exit
       containers:
         - name: containment
-          image: ghcr.io/aidenharwood/portfolio/containment:44464096488-152 # updated by CI on every build
+          image: ghcr.io/aidenharwood/portfolio/containment:44494043184-153 # updated by CI on every build
           ports:
             - name: http
               containerPort: 7420
